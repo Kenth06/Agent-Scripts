@@ -1,0 +1,4 @@
+interface:
+  display_name: "Browser Tools"
+  short_description: "Chrome DevTools CLI for local browsing and debugging"
+  default_prompt: "Use browser-tools to drive Chrome DevTools for local app testing, debugging, and screenshots. Prefer start/nav/eval/screenshot/console/pick workflows and rebuild with bun after edits."

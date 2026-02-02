@@ -144,3 +144,10 @@ For complete methodology, see the systematic-debugging skill
 - MAINTAIN code quality and avoid technical debt
 - USE proper debugging to find root causes
 - AVOID shortcuts that break user experience
+
+
+## Browser Tools Skill
+
+- Skill path: skills/browser-tools
+- Build helper: scripts/build-browser-tools.sh
+- Binary output: skills/browser-tools/bin/browser-tools (not tracked)
