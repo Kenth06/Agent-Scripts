@@ -2,6 +2,11 @@
 
 This repo mirrors shared agent helpers and skills.
 
+## Workflow (Early 2026)
+
+- Guide: `docs/WORKFLOW_EARLY_2026.md`
+- Meta-prompt: `prompts/AGENTS_MD_META_PROMPT.md`
+
 ## Browser Tools
 
 - Source: `skills/browser-tools/scripts/browser-tools.ts`
