@@ -123,6 +123,45 @@ Default recommendation:
 - **Codex Team Config** (Codex-only): centralize shared config for multiple repos. See: [Codex Team Config](https://developers.openai.com/codex/guides/team-config).
 - **Copy/paste**: last resort unless you have a sync mechanism; drift is real.
 
+## Automation (bootstrap / update / distill)
+
+The goal is to make “keep `AGENTS.md` / `CLAUDE.md` accurate” a repeatable on-demand action.
+
+Canonical prompts live in `.agent-scripts/prompts/`:
+- `REPO_BOOTSTRAP_INSTRUCTIONS.md`
+- `REPO_UPDATE_INSTRUCTIONS.md`
+- `REPO_DISTILL_INSTRUCTIONS.md`
+
+Design rules:
+- Always propose a patch/diff and ask for approval before writing.
+- Make the smallest changes that reflect repo reality (commands/CI/guardrails).
+- Keep `AGENTS.md` short; move long guidance into docs or skills.
+
+### New repo flow
+
+1) Add submodule:
+
+```bash
+git submodule add https://github.com/Kenth06/Agent-Scripts.git .agent-scripts
+```
+
+2) In **Codex or Claude Code**, run the bootstrap prompt:
+- Claude Code: paste `@.agent-scripts/prompts/REPO_BOOTSTRAP_INSTRUCTIONS.md`
+- Codex: “Read and follow `.agent-scripts/prompts/REPO_BOOTSTRAP_INSTRUCTIONS.md`”
+
+Result:
+- `AGENTS.md` wrapper + `CLAUDE.md` wrapper exist
+- Claude Code gets `/bootstrap-instructions`, `/update-instructions`, `/distill-instructions` via `.claude/commands/`
+
+### Existing repo flow
+
+- Update commands/guardrails:
+  - Claude Code: run `/update-instructions`
+  - Codex: “Read `.agent-scripts/prompts/REPO_UPDATE_INSTRUCTIONS.md` and follow it”
+- Distill a repeated failure into 1–3 durable rules:
+  - Claude Code: run `/distill-instructions`
+  - Codex: “Read `.agent-scripts/prompts/REPO_DISTILL_INSTRUCTIONS.md` and follow it”
+
 ## Copy/paste bootstrap for a new repo (portable via git submodule)
 
 This is the “shared constitution + per-repo wrapper” pattern.

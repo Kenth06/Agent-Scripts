@@ -6,6 +6,10 @@ This repo mirrors shared agent helpers and skills.
 
 - Guide: `docs/WORKFLOW_EARLY_2026.md`
 - Meta-prompt: `prompts/AGENTS_MD_META_PROMPT.md`
+- Automation prompts:
+  - Bootstrap: `prompts/REPO_BOOTSTRAP_INSTRUCTIONS.md` (new repo setup + `.claude/commands/`)
+  - Update: `prompts/REPO_UPDATE_INSTRUCTIONS.md` (refresh commands/guardrails; use `/update-instructions`)
+  - Distill: `prompts/REPO_DISTILL_INSTRUCTIONS.md` (add 1–3 durable rules after failures; use `/distill-instructions`)
 
 ## Browser Tools
 
